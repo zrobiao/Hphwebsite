@@ -80,15 +80,33 @@
         </a>
       </li>
     </ul>
+    <alert type="success"><b>Well done!</b> You successfully read this important alert message.</alert>
+    <btn @click="alert" type="primary">Click to open an alert modal</btn>
   </div>
 </template>
 
 <script>
+import '../assets/bootstrap/css/bootstrap.min.css'
+import {Alert} from 'uiv'
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  components: {
+    Alert
+  },
+  methods: {
+    alert () {
+      this.$alert({
+        title: 'Title',
+        content: 'This is an alert message.'
+      }, (msg) => {
+          // callback after modal dismissed
+          this.$notify(`You selected ${msg}.`)
+        })
     }
   }
 }
