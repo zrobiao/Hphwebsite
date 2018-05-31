@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import '../assets/bootstrap/css/bootstrap.min.css'
+// import '../assets/bootstrap/css/bootstrap.min.css'
 import {Alert} from 'uiv'
 export default {
   name: 'HelloWorld',
