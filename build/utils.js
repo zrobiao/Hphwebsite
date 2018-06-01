@@ -4,6 +4,9 @@ const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
 
+//引入glob
+var glob = require('glob');
+
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
     ? config.build.assetsSubDirectory
@@ -98,4 +101,29 @@ exports.createNotifierCallback = () => {
       icon: path.join(__dirname, 'logo.png')
     })
   }
+}
+
+exports.getEntry = (globPath) => {
+
+    var entries = {},
+        basename, tmp, pathname;
+    if (typeof (globPath) != "object") {
+        globPath = [globPath]
+    }
+
+    globPath.forEach((itemPath) => {
+        glob.sync(itemPath).forEach(function (entry) {
+            basename = path.basename(entry, path.extname(entry));
+            if (entry.split('/').length > 4) {
+                tmp = entry.split('/').splice(-3);
+                pathname = tmp.splice(0, 1) + '/' + basename; // 正确输出js和html的路径
+                entries[`${pathname}`] = entry;
+            } else {
+                pathname = "/" + basename;
+                entries[basename] = entry;
+            }
+        });
+    });
+
+    return entries;
 }

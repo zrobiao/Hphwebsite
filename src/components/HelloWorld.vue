@@ -104,9 +104,9 @@ export default {
         title: 'Title',
         content: 'This is an alert message.'
       }, (msg) => {
-          // callback after modal dismissed
-          this.$notify(`You selected ${msg}.`)
-        })
+        // callback after modal dismissed
+        this.$notify(`You selected ${msg}.`)
+      })
     }
   }
 }
