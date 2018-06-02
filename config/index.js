@@ -10,13 +10,13 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     // assetsPublicPath: '/',
-    assetsPublicPath: './',// 默认为/  无法正确引用静态资源 多页面打包加载时添加../为二级目录
+    assetsPublicPath: '/',// 默认为/  无法正确引用静态资源 多页面打包加载时添加../为二级目录
     proxyTable: {},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8090, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-

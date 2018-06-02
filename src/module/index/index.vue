@@ -2,7 +2,7 @@
   <div id="app">
     <img src="../../assets/logo.png">
     <nav-menu></nav-menu>
-    <p>{{msg}}</p>
+    <h2>{{msg}}</h2>
   </div>
 </template>
 

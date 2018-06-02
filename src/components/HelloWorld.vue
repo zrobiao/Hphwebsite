@@ -6,10 +6,10 @@
         <a href="index.html">首页</a>
       </li>
       <li>
-        <a href="aboutUs.html">健康资源</a>
+        <a href="healthInfo.html">健康资源</a>
       </li>
       <li>
-        <a href="aboutUs.html">资讯</a>
+        <a href="infoList.html">资讯</a>
       </li>
       <li>
         <a href="aboutUs.html">关于我们</a>
