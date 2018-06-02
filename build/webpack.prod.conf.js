@@ -16,7 +16,7 @@ const env = process.env.NODE_ENV === 'testing'
   : require('../config/prod.env')
 
 //获取指定目录下的html
-var pages = utils.getEntry(['./src/module/*.html', './src/module/**/*.html']);
+// var pages = utils.getEntry(['./src/module/*.html', './src/module/**/*.html']);
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -65,7 +65,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
-    //多页面配置注释一下
+    //多页面配置注释一下  开始
     // new HtmlWebpackPlugin({
     //   filename: process.env.NODE_ENV === 'testing'
     //     ? 'index.html'
@@ -82,6 +82,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     //   // necessary to consistently work with multiple chunks via CommonsChunkPlugin
     //   chunksSortMode: 'dependency'
     // }),
+    //多页面配置注释一下  结束
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
@@ -124,7 +125,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
-  ]
+  ].concat(utils.htmlPlugin())   //多页面配置添加
 })
 
 if (config.build.productionGzip) {
@@ -153,24 +154,24 @@ if (config.build.bundleAnalyzerReport) {
 module.exports = webpackConfig
 
 
-for (var pathname in pages) {
-  // 配置生成的html文件，定义路径等
-  var conf = {
-    filename: pathname + '.html',
-    template: pages[`${pathname}`],   // 模板路径
-    minify: {                   //
-      removeComments: true,
-      collapseWhitespace: true,
-      removeAttributeQuotes: true
-    },
-    inject: true,             // js插入位置
-    // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-    chunksSortMode: 'dependency',
-  };
-  if (pathname in module.exports.entry) {
-    conf.chunks = ['manifest', 'vendor', pathname];
-    conf.hash = true;
-  }
-  //添加到数组
-  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
-}
+// for (var pathname in pages) {
+//   // 配置生成的html文件，定义路径等
+//   var conf = {
+//     filename: pathname + '.html',
+//     template: pages[`${pathname}`],   // 模板路径
+//     minify: {                   //
+//       removeComments: true,
+//       collapseWhitespace: true,
+//       removeAttributeQuotes: true
+//     },
+//     inject: true,             // js插入位置
+//     // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+//     chunksSortMode: 'dependency',
+//   };
+//   if (pathname in module.exports.entry) {
+//     conf.chunks = ['manifest', 'vendor', pathname];
+//     conf.hash = true;
+//   }
+//   //添加到数组
+//   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
+// }

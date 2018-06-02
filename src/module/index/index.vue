@@ -1,12 +1,21 @@
 <template>
   <div id="app">
-    <p>这里是首页的展示</p>
+    <img src="../../assets/logo.png">
+    <nav-menu></nav-menu>
+    <p>{{msg}}</p>
   </div>
 </template>
 
 <script>
+import navMenu from '../../components/HelloWorld.vue'
 export default {
-  name: 'App'
+  name: 'app',
+  components: { navMenu },
+  data () {
+    return {
+      msg: '这里是首页！'
+    }
+  }
 }
 </script>
 

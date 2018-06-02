@@ -1,92 +1,26 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <h2>跳转链接</h2>
     <ul>
       <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
+        <a href="index.html">首页</a>
       </li>
       <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
+        <a href="aboutUs.html">健康资源</a>
       </li>
       <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
+        <a href="aboutUs.html">资讯</a>
       </li>
       <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
+        <a href="aboutUs.html">关于我们</a>
       </li>
     </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
-    <alert type="success"><b>Well done!</b> You successfully read this important alert message.</alert>
     <btn @click="alert" type="primary">Click to open an alert modal</btn>
   </div>
 </template>
 
 <script>
-// import '../assets/bootstrap/css/bootstrap.min.css'
+import '../assets/bootstrap/css/bootstrap.min.css'
 import {Alert} from 'uiv'
 export default {
   name: 'HelloWorld',

@@ -19,15 +19,12 @@ const createLintingRule = () => ({
   }
 })
 
-//获取对象，匹配./src/module/xxx.js和./src/module/xxx/xxx.js  多个引入  替换默认生成的{”App“:{"./src/main.js"}}
-//在文件底部添加getEntry方法  参数是对应js所在目录数组，可以多个
-var entries = utils.getEntry(['./src/module/*.js', './src/module/**/*.js']); // 获得入口js文件
 module.exports = {
   context: path.resolve(__dirname, '../'),
   // entry: {
   //   app: './src/main.js'
   // },
-  entry: entries,
+  entry: utils.entries(),  //多页面配置
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',

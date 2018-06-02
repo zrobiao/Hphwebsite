@@ -13,7 +13,7 @@ const portfinder = require('portfinder')
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
-var pages = utils.getEntry(['./src/module/*.html', './src/module/**/*.html']);
+// var pages = utils.getEntry(['./src/module/*.html', './src/module/**/*.html']);
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -67,7 +67,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
-  ]
+  ].concat(utils.htmlPlugin())
 })
 
 module.exports = new Promise((resolve, reject) => {
@@ -96,21 +96,21 @@ module.exports = new Promise((resolve, reject) => {
   })
 })
 
-for (var pathname in pages) {
-  // 配置生成的html文件，定义路径等
-  var conf = {
-    filename: pathname + '.html',
-    template: pages[pathname],   // 模板路径
-    inject: true,              // js插入位置
-    // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-    chunksSortMode: 'dependency'
+// for (var pathname in pages) {
+//   // 配置生成的html文件，定义路径等
+//   var conf = {
+//     filename: pathname + '.html',
+//     template: pages[pathname],   // 模板路径
+//     inject: true,              // js插入位置
+//     // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+//     chunksSortMode: 'dependency'
 
-  };
+//   };
 
-  // if (pathname in module.exports.entry) {
-  //   conf.chunks = ['manifest', 'vendor', pathname];
-  //   conf.hash = true;
-  // }
+//   if (pathname in module.exports.entry) {
+//     conf.chunks = ['manifest', 'vendor', pathname];
+//     conf.hash = true;
+//   }
 
-  devWebpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
-}
+//   devWebpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
+// }

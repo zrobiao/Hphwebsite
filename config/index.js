@@ -5,13 +5,12 @@
 const path = require('path')
 
 module.exports = {
-    moduleName:'views',
   dev: {
 
     // Paths
     assetsSubDirectory: 'static',
     // assetsPublicPath: '/',
-    assetsPublicPath: '../',// 默认为/  无法正确引用静态资源 多页面打包加载时添加../为二级目录
+    assetsPublicPath: './',// 默认为/  无法正确引用静态资源 多页面打包加载时添加../为二级目录
     proxyTable: {},
 
     // Various Dev Server settings
