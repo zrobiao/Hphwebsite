@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <img src="../../assets/logo.png">
-    <nav-menu></nav-menu>
+    <Header menu-title="首页"></Header>
     <h2>{{msg}}</h2>
+    <footer></footer>
   </div>
 </template>
 
 <script>
-import navMenu from '../../components/HelloWorld.vue'
+import Header from '../../components/common/header.vue'
+import footer from '../../components/common/footer.vue'
 export default {
   name: 'app',
-  components: { navMenu },
+  components: {
+    footer,
+    Header
+  },
   data () {
     return {
       msg: '这里是首页！'
@@ -20,12 +24,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
