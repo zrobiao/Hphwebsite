@@ -43,5 +43,6 @@ export default {
 }
 .logo-link img {
   /* padding: 4px 6px; */
+  height: 100%;
 }
 </style>
