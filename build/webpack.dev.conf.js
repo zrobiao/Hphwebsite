@@ -67,7 +67,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
-  ].concat(utils.htmlPlugin())
+  ].concat(utils.htmlPlugin())  //多页面配置添加此项
 })
 
 module.exports = new Promise((resolve, reject) => {
