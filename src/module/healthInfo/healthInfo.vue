@@ -1,30 +1,35 @@
 <template>
-    <div id="app">
-       <cell></cell>
-       <h2>{{msg}}</h2>
-    </div>
+  <div>
+    <Header menu-title="健康资源"></Header>
+    <section class="top-banner">
+      <img src="../../../static/img/HeathAbout_banner.jpg">
+    </section>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
-import cell from '../../components/HelloWorld.vue'
+import Header from "../../components/common/header.vue";
+import Footer from "../../components/common/footer.vue";
 export default {
-  name: 'app',
-  components: { cell },
-  data () {
+  name: "app",
+  components: { Header, Footer },
+  data() {
     return {
-      msg: '这里是健康资讯！'
-    }
+      msg: "这里是健康资讯！"
+    };
   }
-}
+};
 </script>
 
 <style>
-#app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+.top-banner {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+.top-banner img {
+  width: 100%;
+  height: auto;
 }
 </style>
