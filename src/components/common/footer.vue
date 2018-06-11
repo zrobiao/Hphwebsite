@@ -1,8 +1,8 @@
 <template>
   <footer>
-    <div class="footer-topbox container" ref="leftBox">
+    <div class="footer-topbox container">
       <div class="row">
-        <div class="footer-toplt col-lg-5 col-md-5 col-xs-12">
+        <div class="footer-toplt col-lg-5 col-md-5 col-xs-12" ref="leftBox">
           <div class="compinfo">
             <h2>深圳快康网络科技有限公司</h2>
             <p>地址：贵州省贵阳市</p>
@@ -44,15 +44,20 @@ export default {
       footerLtH: 0
     };
   },
-  methods: {},
-  created() {
-    // this.showFooterLtH()
+  methods: {
+    showLstHeight:function (){
+      let leftHeight = this.$refs.leftBox.offsetHeight
+      this.footerLtH = leftHeight
+    }
   },
+  created() {
+    setTimeout(() => {
+      this.showLstHeight()
+    }, 500)
+    },
   mounted() {
-    let leftHeight = this.$refs.leftBox.offsetHeight
-    // let leftHeight = window.getComputedStyle(this.$refs.leftBox).height
-    console.log(leftHeight)
-    this.footerLtH = leftHeight
+  },
+  beforeUpdate() {
 
   },
   components: {
