@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import "../../common/css/reset.css"
 import Header from "../../components/common/header.vue";
 import Footer from "../../components/common/footer.vue";
 export default {

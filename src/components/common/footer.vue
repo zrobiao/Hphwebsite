@@ -1,30 +1,30 @@
 <template>
   <footer>
-    <div class="footer-topbox container">
+    <div class="footer-topbox container" ref="leftBox">
       <div class="row">
-        <div class="footer-toplt col-lg-5 col-md-5 col-xs-12" id="footerTopLt">
+        <div class="footer-toplt col-lg-5 col-md-5 col-xs-12">
           <div class="compinfo">
             <h2>深圳快康网络科技有限公司</h2>
             <p>地址：贵州省贵阳市</p>
             <p>电话：0851-12345678</p>
             <p>邮箱：1109993204@qq.com</p>
           </div>
-          <div class="qrcodebox">
+          <div class="qrcodebox col-lg-12 col-md-12 col-xs-12">
             <p>微信公众号</p>
             <ul class=" col-lg-12 col-md-12 col-xs-12">
-              <li class="qrcode col-lg-4 col-md-4 col-xs-6">
+              <li class="qrcode col-lg-4 col-md-4 col-xs-5">
                 <img src="../../../static/img/qrcode.png">
                 <p>客户端</p>
               </li>
-              <li class="qrcode col-lg-4 col-md-4 col-xs-6">
+              <li class="qrcode col-lg-4 col-md-4 col-xs-5">
                 <img src="../../../static/img/qrcode.png">
                 <p>护工端</p>
               </li>
             </ul>
           </div>
         </div>
-        <div class="footer-toprt col-lg-7 col-md-7 col-xs-12" :style="{height:footerLtH+'px'}">
-          <div>这里显示地图信息！</div>
+        <div class="footer-toprt col-lg-7 col-md-7 col-xs-12" :style="{height:footerLtH+'px',padding:0}">
+          <amap></amap>
         </div>
       </div>
     </div>
@@ -36,26 +36,28 @@
   </footer>
 </template>
 <script>
-import "../../assets/bootstrap/css/bootstrap.min.css";
+import "../../assets/bootstrap/css/bootstrap.min.css"
+import Amap from './map.vue'
 export default {
   data() {
     return {
-      footerLtH: ""
+      footerLtH: 0
     };
   },
+  methods: {},
   created() {
-    this.showFooterLtH()
+    // this.showFooterLtH()
   },
-  mounted() {},
-  methods: {
-    showFooterLtH: function() {
-      let left = document.getElementById('footerTopLt')
-      let leftHeight = left.offsetHeight
-      console.log(leftHeight)
-      this.footerLtH = leftHeight
-    }
+  mounted() {
+    let leftHeight = this.$refs.leftBox.offsetHeight
+    // let leftHeight = window.getComputedStyle(this.$refs.leftBox).height
+    console.log(leftHeight)
+    this.footerLtH = leftHeight
+
   },
-  components: {}
+  components: {
+    Amap
+  }
 };
 </script>
 <style>
@@ -63,14 +65,25 @@ footer {
   background: #3b4a55;
   color: #fff;
 }
+.compinfo h2{
+  font-size:2.6rem;
+  margin:0;
+  padding:20px 0 10px;
+}
 .compinfo p{
-  margin:0 0 6px;
+  margin:0;
+  padding-bottom:6px;
 }
 .qrcodebox{
-  margin-top:15px;
+  padding:5px 0;
+}
+.qrcodebox p{
+  padding-bottom:6px;
+  margin-bottom:0;
 }
 .qrcodebox ul{
   padding:0;
+  margin-bottom:0;
 }
 /* .qrcodebox li{
   padding:0 30px;
@@ -89,7 +102,8 @@ footer {
 }
 .footer-bottom p{
   text-align: center;
-  line-height: 2rem;
+  line-height: 1.4rem;
+  padding:8px 0;
   font-size: 1.2rem;
   margin:0;
 }
