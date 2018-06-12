@@ -55,28 +55,28 @@
         </li>
       </ul>
     </section>
-    <section class="index-middle">
-      <div class="container">专业级的护工给你提供更加优质的护理服务……</div>
+    <section class="index-middle" ref="indexMiddle">
+      <div class="container" :style="{height:middleHeight+'px',lineHeight:middleHeight+'px'}">专业级的护工给你提供更加优质的护理服务……</div>
     </section>
     <section class="container">
-      <ul class="row">
+      <ul class="content row">
         <li class="col-lg-6 col-md-6 col-xs-12">
-          <div class="nurs-wokerbox" ref="bignurs" :style="{height:bigHeight+'px'}">
-            <div>
+          <div class="nurs-wokerbox nurs-zybg" ref="bignurs" :style="{height:bigHeight+'px'}">
+            <div class="nurs-ziy">
               <h6>自营护工</h6>
               <p>专业培训、舒适培训</p>
             </div>
           </div>
         </li>
         <li class="col-lg-6 col-md-6 col-xs-12">
-          <div class="nurs-wokerbox" ref="smallnurs" :style="{height:smallHeight+'px'}">
-            <div>
+          <div class="nurs-wokerbox nurs-hlbg" ref="smallnurs" :style="{height:smallHeight+'px'}" style="margin-bottom:10px;">
+            <div class="nurs-hail">
               <h6>海量护工</h6>
               <p>共享服务、方便你我</p>
             </div>
           </div>
-          <div class="nurs-wokerbox" ref="smallnurs" :style="{height:smallHeight+'px'}">
-            <div>
+          <div class="nurs-wokerbox nurs-jmbg" ref="smallnurs" :style="{height:smallHeight+'px'}">
+            <div class="nurs-jiam">
               <h6>加盟护工</h6>
               <p>专业、专注、专项</p>
             </div>
@@ -84,13 +84,13 @@
         </li>
       </ul>
     </section>
-    <section class="ent-content">
+    <section class="ent-content" style="margin-bottom:50px;">
       <div class="index-titlebox">
         <h4>便捷入口</h4>
         <p></p>
       </div>
       <div class="container">
-        <ul class="row">
+        <ul class="content row">
           <li class="col-lg-4 col-md-4 col-xs-12">
             <div class="ent-libox">
               <div class="icon-box app-icon">
@@ -144,6 +144,7 @@ export default {
       controls: false,
       bigHeight:0,
       smallHeight:0,
+      middleHeight:0,
       slides: [
         {
           title: "滑动1",
@@ -159,9 +160,10 @@ export default {
   mounted() {
     let nursWidth = this.$refs.bignurs.offsetWidth
     let smNursWidth = this.$refs.smallnurs.offsetWidth
-    console.log(nursWidth)
-    this.bigHeight = nursWidth/2
-    this.smallHeight = smNursWidth/4
+    let indexMiddleWidth = this.$refs.indexMiddle.offsetWidth
+    this.middleHeight = indexMiddleWidth/10
+    this.bigHeight = nursWidth/1.25
+    this.smallHeight = smNursWidth/2.6
   }
 };
 </script>
@@ -241,19 +243,27 @@ export default {
 }
 /* 中间banner */
 .index-middle{
-  padding-bottom:10%;
-  /* background: url(../../static/index_middle.jpg) 0 0 no-repeat; */
-  background: #34b8de;
+  position: relative;
+  background: url(./../../../static/img/index_middle.jpg) 0 0 no-repeat;
+  /* background: #34b8de; */
 }
 .index-middle div{
-  font-size:2.4rem;
+  font-size:2rem;
   color:#fff;
 }
 /* 护工介绍 */
 .nurs-wokerbox{
-  height:
+  position: relative;
 }
-
+.nurs-zybg{
+  background: url(./../../../static/img/index_worker01.jpg) 0 0 no-repeat;
+}
+.nurs-hlbg{
+  background: url(./../../../static/img/index_worker02.jpg) 0 0 no-repeat;
+}
+.nurs-jmbg{
+  background: url(./../../../static/img/index_worker03.jpg) 0 0 no-repeat;
+}
 /* 便捷入口 */
 .ent-content{
   background:#edf3f5;
