@@ -61,7 +61,7 @@
     <section class="container">
       <ul class="row">
         <li class="col-lg-6 col-md-6 col-xs-12">
-          <div class="nurs-wokerbox">
+          <div class="nurs-wokerbox" ref="bignurs" :style="{height:bigHeight+'px'}">
             <div>
               <h6>自营护工</h6>
               <p>专业培训、舒适培训</p>
@@ -69,13 +69,13 @@
           </div>
         </li>
         <li class="col-lg-6 col-md-6 col-xs-12">
-          <div class="nurs-wokerbox">
+          <div class="nurs-wokerbox" ref="smallnurs" :style="{height:smallHeight+'px'}">
             <div>
               <h6>海量护工</h6>
               <p>共享服务、方便你我</p>
             </div>
           </div>
-          <div class="nurs-wokerbox">
+          <div class="nurs-wokerbox" ref="smallnurs" :style="{height:smallHeight+'px'}">
             <div>
               <h6>加盟护工</h6>
               <p>专业、专注、专项</p>
@@ -89,35 +89,37 @@
         <h4>便捷入口</h4>
         <p></p>
       </div>
-      <ul class="content row">
-        <li class="col-lg-4 col-md-4 col-xs-12">
-          <div class="ent-libox">
-            <div class="icon-box">
-              <i class="iconfont hph-ali-app6"></i>
+      <div class="container">
+        <ul class="row">
+          <li class="col-lg-4 col-md-4 col-xs-12">
+            <div class="ent-libox">
+              <div class="icon-box app-icon">
+                <i class="iconfont hph-ali-app6"></i>
+              </div>
+              <h3>APP直达</h3>
+              <p>专业服务<br/>培训上岗&nbsp;&nbsp;经验丰富</p>
             </div>
-            <h3>APP直达</h3>
-            <p>专业服务<br/>培训上岗&nbsp;&nbsp;经验丰富</p>
-          </div>
-        </li>
-        <li class="col-lg-4 col-md-4 col-xs-12">
-          <div class="ent-libox">
-            <div class="icon-box">
-              <i class="iconfont hph-ali-weixin-copy"></i>
+          </li>
+          <li class="col-lg-4 col-md-4 col-xs-12">
+            <div class="ent-libox">
+              <div class="icon-box wx-icon">
+                <i class="iconfont hph-ali-weixin-copy"></i>
+              </div>
+              <h3>微信直达</h3>
+              <p>八大资源<br/>五星服务&nbsp;&nbsp;为您护航</p>
             </div>
-            <h3>微信直达</h3>
-            <p>八大资源<br/>五星服务&nbsp;&nbsp;为您护航</p>
-          </div>
-        </li>
-        <li class="col-lg-4 col-md-4 col-xs-12">
-          <div class="ent-libox">
-            <div class="icon-box">
-              <i class="iconfont hph-ali-dianhuadiaoyan"></i>
+          </li>
+          <li class="col-lg-4 col-md-4 col-xs-12">
+            <div class="ent-libox">
+              <div class="icon-box phone-icon">
+                <i class="iconfont hph-ali-dianhuadiaoyan"></i>
+              </div>
+              <h3>电话直达</h3>
+              <p>多元化服务<br/>五星服务&nbsp;&nbsp;海量护工</p>
             </div>
-            <h3>电话直达</h3>
-            <p>多元化服务<br/>五星服务&nbsp;&nbsp;海量护工</p>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </section>
     <Footer></Footer>
   </div>
@@ -140,6 +142,8 @@ export default {
       interval: 0,
       indicators: true,
       controls: false,
+      bigHeight:0,
+      smallHeight:0,
       slides: [
         {
           title: "滑动1",
@@ -148,7 +152,17 @@ export default {
       ]
     };
   },
-  created() {}
+  methods:{
+
+  },
+  created() {},
+  mounted() {
+    let nursWidth = this.$refs.bignurs.offsetWidth
+    let smNursWidth = this.$refs.smallnurs.offsetWidth
+    console.log(nursWidth)
+    this.bigHeight = nursWidth/2
+    this.smallHeight = smNursWidth/4
+  }
 };
 </script>
 
@@ -177,43 +191,52 @@ export default {
   height: 15px;
   background: #34b8de;
 }
-/* 我们的又是样式 */
+/* 我们的优势样式 */
 .index-titlebox{
   width:100%;
   text-align: center;
   padding:12px 0 8px;
 }
 .index-titlebox h4{
-  font-size: 1.6rem;
-  color:#747474;
+  font-size: 1.8rem;
+  color:#525252;
   line-height: 2rem;
   margin:8px 0;
 }
 .index-titlebox p{
   width:50px;
   height:2px;
-  color: #34b8de;
+  background: #34b8de;
   margin:0 auto;
 }
 .content{
   padding:12px 0;
+  margin:20px 0 30px;
 }
 .index-libox{
   background: #f3f7fa;
+  border-radius: 4px;
+}
+.index-libox:hover{
+  background: #34b8de;
+  box-shadow:0 0 5px rgba(52, 184, 222, 0.8)
+}
+.index-libox:hover .icon-box, .index-libox:hover p{
+  color: #fff;
 }
 .icon-box{
   color: #34b8de;
   text-align: center;
-  /* padding: 12px 0; */
+  padding: 12px 0;
 }
 .icon-box i{
-  font-size: 4rem;
+  font-size: 6rem;
 }
 .index-libox p{
   text-align: center;
   color:#525252;
-  line-height: 1.8rem;
-  font-size: 1.4rem;
+  line-height: 2.8rem;
+  font-size: 2rem;
   padding: 8px 0 15px;
 }
 /* 中间banner */
@@ -227,13 +250,27 @@ export default {
   color:#fff;
 }
 /* 护工介绍 */
-
+.nurs-wokerbox{
+  height:
+}
 
 /* 便捷入口 */
+.ent-content{
+  background:#edf3f5;
+}
 .ent-libox h3{
   text-align: center;
   font-weight: 700;
   color: #525252;
+}
+.app-icon{
+  color:#34b8de;
+}
+.wx-icon{
+  color:#00994d;
+}
+.phone-icon{
+  color:#c35251;
 }
 .ent-libox p{
   text-align: center;
