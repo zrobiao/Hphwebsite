@@ -69,7 +69,7 @@
           </div>
         </li>
         <li class="col-lg-6 col-md-6 col-xs-12">
-          <div class="nurs-wokerbox nurs-hlbg" ref="smallnurs" :style="{height:smallHeight+'px'}" style="margin-bottom:10px;">
+          <div class="nurs-wokerbox nurs-hlbg" ref="smallnurs" :style="{height:smallHeight+'px'}" style="margin-bottom:15px;">
             <div class="nurs-hail">
               <h6>海量护工</h6>
               <p>共享服务、方便你我</p>
@@ -221,7 +221,16 @@ export default {
 }
 .index-libox:hover{
   background: #34b8de;
-  box-shadow:0 0 5px rgba(52, 184, 222, 0.8)
+  box-shadow:0 0 5px rgba(52, 184, 222, 0.8);
+  -webkit-box-shadow:0 0 5px rgba(52, 184, 222, 0.8);
+  -moz-box-shadow:0 0 5px rgba(52, 184, 222, 0.8);
+  -ms-box-shadow:0 0 5px rgba(52, 184, 222, 0.8);
+  -o-box-shadow:0 0 5px rgba(52, 184, 222, 0.8);
+  transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -moz-transform: scale(1.1);
 }
 .index-libox:hover .icon-box, .index-libox:hover p{
   color: #fff;
@@ -255,6 +264,25 @@ export default {
 .nurs-wokerbox{
   position: relative;
 }
+.nurs-wokerbox h6{
+  background: #34b8de;
+  padding: 10px 8px;
+  border-radius: 5px;
+  /* margin-bottom: 15px; */
+  color:#fff;
+  font-size: 1.6rem;
+  text-align: center;
+}
+.nurs-wokerbox p{
+  font-size: 1.4rem;
+  color:#fff;
+  margin:0;
+}
+.nurs-ziy,.nurs-hail,.nurs-jiam{
+  position:absolute;
+  left:30px;
+  bottom:20px;
+}
 .nurs-zybg{
   background: url(./../../../static/img/index_worker01.jpg) 0 0 no-repeat;
 }
@@ -272,6 +300,7 @@ export default {
   text-align: center;
   font-weight: 700;
   color: #525252;
+  margin:0;
 }
 .app-icon{
   color:#34b8de;
@@ -285,8 +314,9 @@ export default {
 .ent-libox p{
   text-align: center;
   color:#525252;
-  line-height: 1.8rem;
-  font-size: 1.4rem;
+  line-height: 2.2rem;
+  font-size: 1.6rem;
   padding: 8px 0 15px;
+  margin-top:30px;
 }
 </style>
